@@ -35,9 +35,9 @@
 \usepackage{indentfirst}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage[unicode,hidelinks]{hyperref}
-% \hypersetup{%
-%     pdfborder = {0 0 0}
-% }
+\hypersetup{%
+	pdfborder = {0 0 0}
+}
 \usepackage{makecell,multirow} 
 \usepackage{ulem}
 \usepackage{graphicx,wrapfig}
@@ -52,23 +52,25 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\def\labauthor{Сарафанов Ф.Г., Платонова М.В.}
+\def\labauthor{Есюнин М.В., Есюнин Д.В.}
 \def\labauthors{\labauthor}
 \def\labnumber{1}
 \def\labtheme{Частотный модем}
+\def\sciadviser{Земнюков Н.Е.}
+\def\shortlabname{Частотный модем}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%применим колонтитул к стилю страницы
+%применим колонтитул к стилю страницы
 \pagestyle{fancy} 
-	%очистим "шапку" страницы
+%очистим "шапку" страницы
 \fancyhead{} 
-	%слева сверху на четных и справа на нечетных
+%слева сверху на четных и справа на нечетных
 \fancyhead[L]{\labauthors} 
-	%справа сверху на четных и слева на нечетных
-\fancyhead[R]{Отчёт по лабораторной работе №\labnumber} 
-	%очистим "подвал" страницы
+%справа сверху на четных и слева на нечетных
+\fancyhead[R]{\shortlabname} 
+%очистим "подвал" страницы
 \fancyfoot{} 
-	% номер страницы в нижнем колинтуле в центре
+% номер страницы в нижнем колинтуле в центре
 \fancyfoot[C]{\thepage} 
 \renewcommand{\phi}{\varphi}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -80,51 +82,51 @@
 \usepackage{tikz,csvsimple}
 \usetikzlibrary{scopes}
 \usetikzlibrary{%
-     decorations.pathreplacing,%
-     decorations.pathmorphing,%
-    patterns,%
-    calc,%
-    scopes,%
-    arrows,%
-    % arrows.spaced,%
+	decorations.pathreplacing,%
+	decorations.pathmorphing,%
+	patterns,%
+	calc,%
+	scopes,%
+	arrows,%
+	% arrows.spaced,%
 }
 \makeatletter
 \newif\if@gather@prefix 
 \preto\place@tag@gather{% 
-  \if@gather@prefix\iftagsleft@ 
-    \kern-\gdisplaywidth@ 
-    \rlap{\gather@prefix}% 
-    \kern\gdisplaywidth@ 
-  \fi\fi 
+	\if@gather@prefix\iftagsleft@ 
+	\kern-\gdisplaywidth@ 
+	\rlap{\gather@prefix}% 
+	\kern\gdisplaywidth@ 
+	\fi\fi 
 } 
 \appto\place@tag@gather{% 
-  \if@gather@prefix\iftagsleft@\else 
-    \kern-\displaywidth 
-    \rlap{\gather@prefix}% 
-    \kern\displaywidth 
-  \fi\fi 
-  \global\@gather@prefixfalse 
+	\if@gather@prefix\iftagsleft@\else 
+	\kern-\displaywidth 
+	\rlap{\gather@prefix}% 
+	\kern\displaywidth 
+	\fi\fi 
+	\global\@gather@prefixfalse 
 } 
 \preto\place@tag{% 
-  \if@gather@prefix\iftagsleft@ 
-    \kern-\gdisplaywidth@ 
-    \rlap{\gather@prefix}% 
-    \kern\displaywidth@ 
-  \fi\fi 
+	\if@gather@prefix\iftagsleft@ 
+	\kern-\gdisplaywidth@ 
+	\rlap{\gather@prefix}% 
+	\kern\displaywidth@ 
+	\fi\fi 
 } 
 \appto\place@tag{% 
-  \if@gather@prefix\iftagsleft@\else 
-    \kern-\displaywidth 
-    \rlap{\gather@prefix}% 
-    \kern\displaywidth 
-  \fi\fi 
-  \global\@gather@prefixfalse 
+	\if@gather@prefix\iftagsleft@\else 
+	\kern-\displaywidth 
+	\rlap{\gather@prefix}% 
+	\kern\displaywidth 
+	\fi\fi 
+	\global\@gather@prefixfalse 
 } 
 \newcommand*{\beforetext}[1]{% 
-  \ifmeasuring@\else
-  \gdef\gather@prefix{#1}% 
-  \global\@gather@prefixtrue 
-  \fi
+	\ifmeasuring@\else
+	\gdef\gather@prefix{#1}% 
+	\global\@gather@prefixtrue 
+	\fi
 } 
 \makeatother
 
@@ -143,44 +145,67 @@
 \newcommand\Smat{\hat { \mathbf { S } }}
 
 \begin{document}
-\begin{titlepage}
-\begin{center}
-
-{\textsc{Нижегородский государственный университет имени Н.\,И. Лобачевского}}
-\vskip 2pt \hrule \vskip 3pt
-{\textsc{Радиофизический факультет}}
-
-\vfill
-
-
-{{\LARGE Отчет по лабораторной работе №\labnumber}\vskip 12pt {\Huge \bfseries \labtheme}}
-
-	
-\vspace{2cm}
-{\large Работу выполнили студенты \\[-0.25em] 430 группы радиофизического факультата \\[0.5em] {\Large \bfseries \labauthor}}
-
-% \vspace{0.5cm}
-% {e-mail: sfg180@yandex.ru}
-
-% \vspace{2cm}
-
-\end{center}
-
-\vfill
-	
-% \begin{flushright}
-% 	{Выполнили студенты 430 группы\\ \labauthor}%\vskip 12pt Принял:\\ Менсов С.\,Н.}
-% \end{flushright}
-	
-% \vfill
-	
-\begin{center}
-	{Нижний Новгород, 6 марта -- \today}
-\end{center}
-
-\end{titlepage}
-\tableofcontents
-\newpage 
+	\begin{titlepage}
+		%\begin{center}
+		%
+		%{\textsc{Нижегородский государственный университет имени Н.\,И. Лобачевского}}
+		%\vskip 2pt \hrule \vskip 3pt
+		%{\textsc{Радиофизический факультет}}
+		%
+		%\vfill
+		%
+		%
+		%{{\LARGE Отчет по лабораторной работе №\labnumber}\vskip 12pt {\Huge \bfseries \labtheme}}
+		%
+		%	
+		%\vspace{2cm}
+		%{\large Работу выполнили студенты \\[-0.25em] 430 группы радиофизического факультата \\[0.5em] {\Large \bfseries \labauthor}}
+		%
+		%% \vspace{0.5cm}
+		%% {e-mail: sfg180@yandex.ru}
+		%
+		%% \vspace{2cm}
+		%
+		%\end{center}
+		%
+		%\vfill
+		%	
+		%% \begin{flushright}
+		%% 	{Выполнили студенты 430 группы\\ \labauthor}%\vskip 12pt Принял:\\ Менсов С.\,Н.}
+		%% \end{flushright}
+		%	
+		%% \vfill
+		%	
+		%\begin{center}
+		%	{Нижний Новгород, 6 марта -- \today}
+		%\end{center}
+		\begin{center}
+			
+			
+			\textsc{Нижегородский государственный университет имени Н.\,И. Лобачевского}
+			\vskip 4pt \hrule \vskip 8pt
+			\textsc{Радиофизический факультет}
+			
+			\vfill
+			
+			{\Huge\labtheme}
+			
+		\end{center}
+		
+		\vfill
+		
+		\begin{flushright}
+			{Работу выполнили студенты\\ \labauthors\\ 430 группы\\ \vskip 14pt преподаватель:\\ \sciadviser}
+		\end{flushright}
+		
+		\vfill
+		
+		\begin{center}
+			Нижний Новгород, \the\year
+		\end{center}
+	\end{titlepage}
+	\tableofcontents
+	\newpage 
 \section*{Введение}
 \addcontentsline{toc}{section}{Введение}
 
